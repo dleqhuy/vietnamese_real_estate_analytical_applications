@@ -1,6 +1,2 @@
-data
 .venv
-.vscode
-logs
-superset
-docker
+crawler/__pycache__
