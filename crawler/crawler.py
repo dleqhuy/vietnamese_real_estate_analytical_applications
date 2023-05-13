@@ -29,7 +29,6 @@ class Crawler:
         
         while (True):
             try:
-                # if o>=20:break
                 page = page + 1
                 o = o + 20
                 url = self.DEFAULT + 'region_v2' + str(self.CITY_CODE) + '&area_v2=' + str(self.AREA_CODE) + '&cg=1000&o=' + str(o) + '&page=' + str(page) + '&st=s,k&limit=20&key_param_included=true'
