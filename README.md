@@ -1,7 +1,7 @@
 # vietnamese_real_estate_analytical_applications
 Vietnamese_Real_Estate_Advertisement_Posts_and_Analytical_Applications
 
-Processing real estate in HCMC, raw data after scraping from nhatot.vn is put into Postgres, then transform and load into postgres data warehouse. BI tool for data using Superset.
+Processing real estate in HCMC, raw data after scraping from nhatot.vn is put into Postgres, then transform and load into postgres data warehouse. BI tool for data using Superset on Docker.
 
 ## Architecture
 
