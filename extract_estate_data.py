@@ -36,16 +36,16 @@ def main(path_csv):
     area = pd.read_csv(path_csv)
 
     alchemyEngine = create_engine('postgresql://postgres:postgres@localhost:5052/postgres')
-    data = []
+    
     for index, row in area.iterrows():
-
+        data = []
         bot = crawler.Crawler(AREA_CODE=row.area_id)
         data.extend(bot.run())
         print(f" Successfully-{row.area_id}-{row.area_name}")
+        data = pd.DataFrame(data)
+        data = clean_df(data)
+        data.to_sql('extract_estate_data_raw', alchemyEngine,if_exists='append', index=False)
 
-    data = pd.DataFrame(data)
-    data = clean_df(data)
-    data.to_sql('extract_estate_data_raw', alchemyEngine,if_exists='replace', index=False)
 
 if __name__ == '__main__':
     main('crawler/area.csv') 

@@ -2,3 +2,4 @@ numpy
 requests
 pandas
 sqlalchemy
+psycopg2-binary

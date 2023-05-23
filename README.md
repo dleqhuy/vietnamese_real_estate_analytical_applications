@@ -16,7 +16,7 @@ Processing real estate in HCMC, raw data after scraping from nhatot.vn is put in
 And finally, we launch all the services:
 
 ```sh
-docker-compose up
+docker compose -f "superset/docker-compose-non-dev.yml" up -d --build
 ```
 
 After running them, you can crawl the data put into the database. We do this:
@@ -51,7 +51,7 @@ Database configuration and pgAdmin:
 POSTGRES_USER: postgres
 POSTGRES_PASSWORD: postgres
 POSTGRES_DB: postgres
-PGADMIN_DEFAULT_EMAIL: admin@admin.com
+PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
 PGADMIN_DEFAULT_PASSWORD: admin
 ```
 
