@@ -9,7 +9,6 @@ class Crawler:
         self.CITY_CODE = CITY_CODE
         self.AREA_CODE = AREA_CODE
         self.DEFAULT = DEFAULT = 'https://gateway.chotot.com/v1/public/ad-listing?'
-        self.ERROR_LIMIT = 6
         self.user_agents = [ 
             'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36', 
             'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36', 
@@ -19,10 +18,7 @@ class Crawler:
         ] 
 
     def run(self):
-        error = 0
-        data = []
-        previous = time.time()
-    
+        data = []    
         page = 0
         o = -20
         sys.stdout.write('Scanning area: %d\n' % (self.AREA_CODE))
@@ -35,14 +31,12 @@ class Crawler:
                 headers = {'User-Agent': random.choice(self.user_agents)}
                 #print(headers)
                 r = requests.get(headers = headers, url = url)
-                #print(r.content)
-                r.json()
-                if 0 == len(r.json()['ads']):
-                    #sys.stdout.write('\n%s' % 'Close')
+                json = r.json()['ads']
+                if 0 == len(json):
                     break
-                data.extend(r.json()['ads'])
+                data.extend(json)
 
-                sys.stdout.write('Number of items: %d (Total: %d)\r' % (page * 20,  len(data)))
+                sys.stdout.write('Number of items: %d \r' % (len(data)))
                 sys.stdout.flush()
 
             except:
@@ -50,11 +44,7 @@ class Crawler:
             
             time.sleep(np.random.choice([x/10 for x in range(3,12)]))
         
-        if (page == 1):
-            error += 1
-        else:
-            sys.stdout.write('\n')
-                
+        sys.stdout.write('\n')
         sys.stdout.write('\nFinish %d items' % (len(data)))
         sys.stdout.flush()
         return data
