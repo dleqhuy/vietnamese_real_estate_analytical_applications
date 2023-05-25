@@ -27,9 +27,8 @@ class Crawler:
             try:
                 page = page + 1
                 o = o + 20
-                url = self.DEFAULT + 'region_v2' + str(self.CITY_CODE) + '&area_v2=' + str(self.AREA_CODE) + '&cg=1000&o=' + str(o) + '&page=' + str(page) + '&st=s,k&limit=20&key_param_included=true'
+                url = self.DEFAULT + 'region_v2' + str(self.CITY_CODE) + '&area_v2=' + str(self.AREA_CODE) + '&cg=1000&o=' + str(o) + '&page=' + str(page) + '&st=s,k&limit=20&key_param_included=false'
                 headers = {'User-Agent': random.choice(self.user_agents)}
-                #print(headers)
                 r = requests.get(headers = headers, url = url)
                 json = r.json()['ads']
                 if 0 == len(json):
