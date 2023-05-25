@@ -20,14 +20,14 @@ class Crawler:
     def run(self):
         data = []    
         page = 0
-        o = -20
+        o = -100
         sys.stdout.write('Scanning area: %d\n' % (self.AREA_CODE))
         
         while (True):
             try:
                 page = page + 1
-                o = o + 20
-                url = self.DEFAULT + 'region_v2' + str(self.CITY_CODE) + '&area_v2=' + str(self.AREA_CODE) + '&cg=1000&o=' + str(o) + '&page=' + str(page) + '&st=s,k&limit=20&key_param_included=false'
+                o = o + 100
+                url = self.DEFAULT + 'region_v2' + str(self.CITY_CODE) + '&area_v2=' + str(self.AREA_CODE) + '&cg=1000&o=' + str(o) + '&page=' + str(page) + '&st=s,k&limit=100&key_param_included=true'
                 headers = {'User-Agent': random.choice(self.user_agents)}
                 r = requests.get(headers = headers, url = url)
                 json = r.json()['ads']
