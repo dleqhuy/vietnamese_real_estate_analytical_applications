@@ -16,7 +16,7 @@ Processing real estate in HCMC, raw data after scraping from nhatot.vn is put in
 And finally, we launch all the services:
 
 ```sh
-docker compose -f "superset/docker-compose-non-dev.yml" up -d --build
+docker-compose up
 ```
 
 After running them, you can crawl the data put into the database. We do this:
