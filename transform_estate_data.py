@@ -22,7 +22,9 @@ def select_df(con):
     ward_name,
     street_name,
     list_id,
-    list_time
+    list_time,
+    longitude,
+    latitude
     '''
     df = pd.read_sql_query(f"select {columns} from extract_estate_data_raw", con=con)
     return df

@@ -25,6 +25,8 @@ def clean_df(df):
         'list_time',
         'length',
         'width',
+        'longitude',
+        'latitude'
     ]
     df = df[columns]
     df = df.fillna(np.nan)
@@ -42,6 +44,7 @@ def main(path_csv):
         bot = crawler.Crawler(AREA_CODE=row.area_id)
         data.extend(bot.run())
         print(f" Successfully-{row.area_id}-{row.area_name}")
+    
         data = pd.DataFrame(data)
         data = clean_df(data)
         data.to_sql('extract_estate_data_raw', alchemyEngine,if_exists='append', index=False)
