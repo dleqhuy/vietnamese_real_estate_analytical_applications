@@ -10,8 +10,8 @@ Processing real estate in HCMC, raw data after scraping from nhatot.vn is put in
 
 ## Run
 
-    git clone https://github.com/dleqhuy/vietnamese_real_estate_analytical_applications.git
-    cd vietnamese_real_estate_analytical_applications
+    git clone https://github.com/dleqhuy/vietnamese_real_estate_statistics.git
+    cd vietnamese_real_estate_statistics
 
 And finally, we launch all the services:
 
