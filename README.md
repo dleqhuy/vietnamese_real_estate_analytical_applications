@@ -2,7 +2,7 @@
 
 Statistics of Vietnamese Real Estate.
 
-Processing real estate in HCMC, raw data after scraping from nhatot.vn is put into Postgres, then transform and load into postgres data warehouse. BI tool for data using Superset on Docker.
+Processing real estate in HCMC, raw data after scraping from nhatot.vn is put into Postgres, then transform and load into postgres data warehouse. BI tool for data using Power BI.
 
 ## Architecture
 
@@ -30,9 +30,9 @@ you can transfrom the data to visualization. We do this:
 ```sh
 python transform_estate_data.py
 ```
-superset
+power bi
 
-![](docs/superset.png)
+![](docs/powerbi.png)
 
 ### Web services
 
